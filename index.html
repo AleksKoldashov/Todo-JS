@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.muicss.com/mui-latest/css/mui.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="content">
+      <div >
+        <div >
+          <br />
+          <br />
+          <h2>Создать задачу</h2>
+          <hr/>
+          <br />
+          <form id="form">
+            <div >
+              <input 
+              type="text" 
+              id="myInput" 
+              placeholder="Напиши задачу.."
+              required
+              minlength="5"
+              maxlength="256"
+              />
+            </div>
+            <button
+              type="submit"
+              id="submit"
+            >
+              Записать задачу
+            </button>
+          </form>
+          <br />
+          <br />
+          <h4>Ваши задачи</h4>
+          <hr/>
+          <br />
+          <div id="list"></div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
