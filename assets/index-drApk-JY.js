@@ -1,0 +1,7 @@
+(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))s(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const c of t.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&s(c)}).observe(document,{childList:!0,subtree:!0});function n(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function s(e){if(e.ep)return;e.ep=!0;const t=n(e);fetch(e.href,t)}})();class i{static create(r){const n=l();n.push(r),localStorage.setItem("tasks",JSON.stringify(n)),i.renderList()}static renderList(){const r=l(),n=r.length?r.map(d).join(""):"<h2>Вы пока ничего нес просили</h2>",s=document.getElementById("list");s.innerHTML=n}}function l(){return JSON.parse(localStorage.getItem("tasks")||"[]")}function d(o){return` 
+  <div>
+  ${new Date(o.date).toLocaleDateString()}
+  ${new Date(o.date).toLocaleTimeString()}
+  </div>
+  <div>${o.text}</div>
+  <br />`}const u=document.getElementById("form"),a=document.querySelector("#myInput");window.addEventListener("load",i.renderList);u.addEventListener("submit",f);function f(o){o.preventDefault();const r={text:a.value.trim(),date:new Date().toJSON()};i.create(r).then(()=>{a.value="",a.className=""})}
